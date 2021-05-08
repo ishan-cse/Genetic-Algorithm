@@ -10,19 +10,16 @@ void lowest_population_remover();
 void crossover();
 void mutation();
 
-
 struct CHROMOSOME
 {
     int fitness;
     int pattern[9];
 }chromosome[31];
 
-
 struct temporary
 {
     int temp_pattern[9];
 }temp[31];
-
 
 int main()
 {
@@ -53,13 +50,10 @@ int main()
     return 0;
 }
 
-
-
-
 int genetic_algorithm_agent()
 {
-    if(r==0)
- {
+  if(r==0)
+  {
         generation=generation+1;
 
         printf("\n\n #generation no : %d \n\n",generation);
@@ -68,7 +62,6 @@ int genetic_algorithm_agent()
     {
         chromosome[k].fitness=0;
     }
-
 
     for(int p=1;p<=population;p++)
     {
@@ -91,16 +84,11 @@ int genetic_algorithm_agent()
 
      mutation();
 
-
      genetic_algorithm_agent();
 
     }
-
- }
-
+  }
 }
-
-
 
 void fitness_finder(int p)
 {
@@ -131,7 +119,6 @@ void fitness_finder(int p)
        printf(" %d", chromosome[p].pattern[j]);
      }
 
-
 // print queen position in board
 
    printf("\n\n");
@@ -158,11 +145,8 @@ void fitness_finder(int p)
                 int l= (8 - y - j);
 
                 count = count + l;
-
             }
-
         }
-
     }
 
     if(count==28)
@@ -175,9 +159,6 @@ void fitness_finder(int p)
    printf("\n--> fitness = %d\n",chromosome[p].fitness);
 
 }
-
-
-
 
 int number_of_attack(int row, int col)
 {
@@ -197,7 +178,6 @@ int number_of_attack(int row, int col)
 
          i++;
     }
-
 
 // top diagonal on the right
 
@@ -236,11 +216,8 @@ int number_of_attack(int row, int col)
     return c;
 }
 
-
-
 void lowest_population_remover()
 {
-
       int i,j,min=99999,second_min=999999;
       int low_first,low_second;
 
@@ -306,8 +283,6 @@ void lowest_population_remover()
 
 }
 
-
-
 void crossover()
 {
     int c1=1,c2=2,i;
@@ -362,7 +337,8 @@ void crossover()
 
      printf("\n\n after crossover : \n");
 
-int l;
+       int l;
+        
        for(l=1;l<=pattern_size;l++)
        {
          printf(" %d",temp1[l]);
@@ -385,7 +361,6 @@ int l;
 
        c1=c1+2;
        c2=c2+2;
-
     }
 
 // set the value to chromosome struct from the temp sturct
@@ -397,10 +372,7 @@ int l;
                chromosome[p].pattern[pt] = temp[p].temp_pattern[pt];
            }
         }
-
 }
-
-
 
 void mutation()
 {
